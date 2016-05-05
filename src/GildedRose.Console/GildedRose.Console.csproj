@@ -41,6 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\Updateable.cs" />
+    <Compile Include="Models\AgedBrie.cs" />
+    <Compile Include="Models\BackstagePasses.cs" />
+    <Compile Include="Models\Conjured.cs" />
+    <Compile Include="Models\EnhancedItem.cs" />
+    <Compile Include="Models\Item.cs" />
+    <Compile Include="Models\ItemFactory.cs" />
+    <Compile Include="Models\Sulfuras.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
