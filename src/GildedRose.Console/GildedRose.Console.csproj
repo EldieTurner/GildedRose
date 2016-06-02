@@ -41,6 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UpdateMethods\AgedBrieUpdateMethod.cs" />
+    <Compile Include="UpdateMethods\BackstagePassesUpdateMethod.cs" />
+    <Compile Include="UpdateMethods\BaseUpdateMethod.cs" />
+    <Compile Include="UpdateMethods\ConjuredUpdateMethod.cs" />
+    <Compile Include="Item.cs" />
+    <Compile Include="UpdateMethods\UpdateQualityMethodFactory.cs" />
+    <Compile Include="UpdateMethods\SulfurasUpdateMethod.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

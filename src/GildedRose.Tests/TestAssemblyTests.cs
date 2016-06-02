@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using GildedRose.Console;
+using GildedRose.Console.UpdateMethods;
 using NUnit.Framework;
 
 namespace GildedRose.Tests
@@ -18,9 +19,10 @@ namespace GildedRose.Tests
         [TestCase("Backstage passes to a TAFKAL80ETC concert", 0, 20, 0)] //decreases to zero after the concert
         public void QualityDecreasesAppropriately(string productName, int sellIn, int quality, int expectedQuality)
         {
-            var items = new List<Item> { new Item { Name = productName, SellIn = sellIn, Quality = quality } };
-            var program = new Program();
-            program.UpdateQuality(items);
+            var methodFactory = new UpdateQualityMethodFactory();
+            var items = new List<Item> { new Item() {Name = productName, SellIn = sellIn, Quality = quality} };
+            foreach(var item in items)
+                methodFactory.GetUpdateQualityMethod(item).UpdateQuality();
             Assert.AreEqual(expectedQuality, items[0].Quality);
         }
 
@@ -28,9 +30,10 @@ namespace GildedRose.Tests
         [TestCase("Sulfuras, Hand of Ragnaros", 10, 20, 10)] //"Sulfuras", being a legendary item, never has to be sold or decreases in Quality
         public void SellInDecreasesByOne(string productName, int sellIn, int quality, int expectedSellIn)
         {
-            var items = new List<Item> { new Item { Name = productName, SellIn = sellIn, Quality = quality } };
-            var program = new Program();
-            program.UpdateQuality(items);
+            var itemFactory = new UpdateQualityMethodFactory();
+            var items = new List<Item> { new Item() {Name = productName, SellIn = sellIn, Quality = quality}};
+            foreach(var item in items)
+                itemFactory.GetUpdateQualityMethod(item).UpdateQuality();
             Assert.AreEqual(expectedSellIn, items[0].SellIn);
         }
     }
